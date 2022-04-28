@@ -1,0 +1,130 @@
+//---Constructors and Properties Example in JavaScript OOP---//
+
+class Drone {
+    constructor(id,name){
+            this.id=id;
+            this.name=name;
+    }
+
+}
+
+let drone = new Drone('420','Flyer');
+console.log('drone:'+drone['id']+' '+drone['name']);
+console.log('drone:'+drone.id+' '+drone.name);
+
+// drone:420 Flyer
+// drone:420 Flyer   -- Prints same results
+
+
+
+
+
+//---Static Properties---//
+class Drone {
+    constructor(id,name){
+            this.id=id;
+            this.name=name;
+    }
+}
+
+
+//setting static property or Class property
+//here maxHeight is static property
+Drone.maxHeight = 2000;
+
+let drone = new Drone('A123','Flyer');
+let drone2 = new Drone ('B456', 'Twirl');
+
+console.log(Drone.maxHeight);
+//prints 2000
+
+console.log(drone.maxHeight);
+//prints undefined
+
+
+
+
+//---METHODS---//
+
+class Drone {
+    constructor(id,name){
+            this.id=id;
+            this.name=name;
+    }
+//lets define a method fly: Instance Method
+    fly() {
+    //we access the instance property by using this keyword
+    console.log('Drone '+ this.id +' is flying.');
+    }
+}
+
+let drone = new Drone('A123','Flyer');
+let drone2 = new Drone ('B456', 'Twirl');
+
+drone.fly();
+//Drone A123 is flying.
+drone2.fly();
+//Drone B456 is flying.
+
+
+
+
+//--STATIC METHODS --//
+
+class Drone {
+    constructor(id,name){
+            this.id=id;
+            this.name=name;
+    }
+//lets define a static method getCompany: Static Method
+    static getCompany(){
+        console.log('in getCompany');
+    }
+
+    fly() {
+    console.log('Drone '+ this.id +' is flying.');
+    }
+}
+
+let drone = new Drone('A123','Flyer');
+let drone2 = new Drone ('B456', 'Twirl');
+
+Drone.getCompany();
+//in getCompany
+drone.getCompany();
+//ERROR: Object doesn't support property
+
+
+
+
+
+//--GETTERS AND SETTERS --//
+
+
+class Drone {
+    constructor(id){
+        this._id = id;
+    }
+    
+    //to get a property
+   //to perform validation/logging and checking getter is used
+   //looks id as a function, but not we can use it as property 
+    get id(){
+        console.log('in id getter');
+        return this._id+ ' TEMPORARY';
+    }
+    //to set a property
+    //to execute a function when we set a value
+    // used for vaidation/error checking 
+    set id(value){
+        this._id =value;
+    }
+}
+
+let drone = new Drone('A123');
+drone.id='B456';
+console.log('drone id: '+ drone.id);
+
+
+//in id getter
+//drone id: B456 TEMPORARY
