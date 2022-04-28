@@ -1,0 +1,16 @@
+//---Constructors and Properties Example in JavaScript OOP---//
+
+class Drone {
+    constructor(id,name){
+            this.id=id;
+            this.name=name;
+    }
+
+}
+
+let drone = new Drone('420','Flyer');
+console.log('drone:'+drone['id']+' '+drone['name']);
+console.log('drone:'+drone.id+' '+drone.name);
+
+// drone:420 Flyer
+// drone:420 Flyer   -- Prints same results
